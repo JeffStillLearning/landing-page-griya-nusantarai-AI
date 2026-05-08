@@ -44,7 +44,7 @@ export function HowToBuySection() {
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-secondary/10 rounded-full blur-[120px] pointer-events-none" />
       
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10 mt-10">
         <div className="text-center mb-16 md:mb-24">
           
           <h2 className="text-4xl md:text-6xl font-display font-extrabold mb-8 leading-tight max-w-4xl mx-auto" id="howtobuy-heading">
@@ -99,7 +99,7 @@ export function HowToBuySection() {
           ))}
         </div>
 
-        <div className="mt-10 md:mt-14 text-center">
+        <div className="mt-10 md:mt-10 text-center">
           {/* <div className="inline-block p-1 rounded-[2rem] bg-white/5 border border-white/10 backdrop-blur-md">
             <Button size="lg" className="px-12 py-5 text-lg rounded-[1.8rem] shadow-2xl shadow-secondary/20">
               Mulai Konsultasi Gratis

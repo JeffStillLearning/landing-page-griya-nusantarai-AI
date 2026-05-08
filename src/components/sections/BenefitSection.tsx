@@ -3,8 +3,8 @@ import { benefitsData } from '@/data/benefits';
 
 export function BenefitSection() {
   return (
-    <section className="py-10 md:py-32 bg-white relative overflow-hidden" id="benefit-section">
-      <div className="container">
+    <section className="relative lg:min-h-screen flex items-center py-16 lg:py-10 bg-white overflow-hidden" id="benefit-section">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10 w-full">
         {/* Mobile Header: Centered and prominent */}
         <div className="max-w-3xl mb-5 md:mb-16 lg:hidden text-center">
           <h2 className="text-3xl font-display font-extrabold text-primary mb-4 leading-tight">
@@ -15,11 +15,11 @@ export function BenefitSection() {
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-24 items-center">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
           
           {/* Editorial Image & Trust Badge */}
           <div className="w-full lg:w-5/12 relative order-1 lg:order-1">
-            <div className="relative aspect-[4/3] md:aspect-video lg:aspect-[4/5] rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-xl">
+            <div className="relative aspect-[4/3] md:aspect-video lg:aspect-square rounded-3xl lg:rounded-[2rem] overflow-hidden shadow-xl max-h-[65vh]">
               <Image 
                 src="/images/benefit-section.jpg" 
                 alt="Suasana Hunian Premium Griya Nusantara"
@@ -48,27 +48,27 @@ export function BenefitSection() {
           {/* Benefits Content */}
           <div className="w-full lg:w-7/12 order-2 lg:order-2">
             {/* Desktop Header: Visible only on LG up */}
-            <div className="hidden lg:block max-w-2xl mb-12">
-              <h2 className="text-5xl lg:text-6xl font-display font-extrabold text-primary mb-6 leading-[1.1]">
+            <div className="hidden lg:block max-w-2xl mb-8 lg:mb-10">
+              <h2 className="text-4xl lg:text-5xl font-display font-extrabold text-primary mb-4 leading-[1.1]">
                 Kenapa Pilih <br /> <span className="text-secondary">Griya Nusantara?</span>
               </h2>
-              <p className="text-muted font-body text-lg leading-relaxed">
+              <p className="text-muted font-body text-base lg:text-lg leading-relaxed">
                 Lebih dari sekadar bangunan, kami menciptakan ekosistem hunian yang mendukung kualitas hidup Anda melalui pilar-pilar utama kami.
               </p>
             </div>
 
-            {/* Benefits Grid: 2 columns on mobile for compactness */}
-            <div className="grid grid-cols-2 lg:grid-cols-2 gap-x-4 gap-y-8 md:gap-x-10 md:gap-y-10">
+            {/* Benefits Grid: Optimized spacing for various aspect ratios */}
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:gap-x-12 lg:gap-y-8">
               {benefitsData.map((benefit) => (
-                <div key={benefit.id} className="group flex flex-col items-center text-center lg:items-start lg:text-left gap-3 md:gap-5">
-                  <div className="flex-shrink-0 w-12 h-12 md:w-14 md:h-14 bg-accent rounded-xl flex items-center justify-center text-2xl md:text-3xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+                <div key={benefit.id} className="group flex flex-col items-center text-center lg:items-start lg:text-left gap-2 lg:gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 lg:w-14 lg:h-14 bg-accent rounded-xl flex items-center justify-center text-xl lg:text-3xl group-hover:bg-secondary group-hover:text-white transition-all duration-300">
                     {benefit.icon}
                   </div>
                   <div>
-                    <h3 className="text-sm md:text-lg font-display font-bold text-primary mb-1 md:mb-2 group-hover:text-secondary transition-colors">
+                    <h3 className="text-sm lg:text-lg font-display font-bold text-primary mb-1 group-hover:text-secondary transition-colors">
                       {benefit.title}
                     </h3>
-                    <p className="text-[10px] md:text-sm text-muted leading-tight md:leading-relaxed">
+                    <p className="text-[10px] lg:text-sm text-muted leading-tight lg:leading-relaxed">
                       {benefit.description}
                     </p>
                   </div>
@@ -77,7 +77,7 @@ export function BenefitSection() {
             </div>
 
             {/* Quote / Sign-off: Hidden on mobile to keep it short */}
-            <div className="mt-12 lg:mt-16 p-8 bg-accent/50 rounded-2xl border-l-4 border-secondary italic text-primary/70 font-body hidden lg:block text-sm md:text-base">
+            <div className="mt-8 lg:mt-10 p-5 lg:p-6 bg-accent/50 rounded-2xl border-l-4 border-secondary italic text-primary/70 font-body hidden lg:block text-sm">
               "Kami percaya setiap keluarga berhak memiliki rumah yang aman dan legalitas yang terjamin tanpa rasa khawatir."
             </div>
           </div>

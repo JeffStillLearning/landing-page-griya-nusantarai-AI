@@ -55,8 +55,8 @@ export function UnitCard({ unit }: UnitCardProps) {
               : "border-primary/5 hover:border-secondary"
           )}
         >
-          {/* Image Container - Aspect Video for shorter height */}
-          <div className="relative aspect-video overflow-hidden rounded-t-[22px]">
+          {/* Image Container - Reduced height */}
+          <div className="relative h-44 lg:h-48 overflow-hidden rounded-t-[22px]">
             <Image
               src={unit.image}
               alt={unit.name}
@@ -85,42 +85,42 @@ export function UnitCard({ unit }: UnitCardProps) {
             </div>
           </div>
           
-          {/* Content - Reduced padding */}
-          <div className="p-5 lg:p-6 flex flex-col flex-grow">
-            <div className="mb-2 text-center lg:text-left">
-              <h3 className="font-display font-extrabold text-lg lg:text-xl text-primary mb-1 group-hover:text-secondary-dark transition-colors duration-300">
+          {/* Content - More compact padding and spacing */}
+          <div className="p-4 flex flex-col flex-grow">
+            <div className="mb-1 text-center lg:text-left">
+              <h3 className="font-display font-extrabold text-base lg:text-lg text-primary mb-0.5 group-hover:text-secondary-dark transition-colors duration-300">
                 {unit.name}
               </h3>
-              <div className="flex items-center justify-center lg:justify-start gap-1 text-muted">
+              <div className="flex items-center justify-center lg:justify-start gap-0.5 text-muted">
                 <MapPinIcon />
                 <span className="text-[10px] tracking-wide">{unit.cluster}</span>
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-2 gap-x-4 py-3 border-y border-primary/5 mb-4">
-              <div className="flex items-center gap-1.5 text-primary/80">
-                <div className="p-1.5 bg-accent/50 rounded-lg"><BedIcon /></div>
-                <span className="text-xs font-bold">{unit.bedrooms} <span className="font-normal text-[10px] text-muted">KT</span></span>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-y-1.5 gap-x-3 py-1.5 border-y border-primary/5 mb-3">
+              <div className="flex items-center gap-1 text-primary/80">
+                <div className="p-1 bg-accent/50 rounded-lg text-primary/60"><BedIcon /></div>
+                <span className="text-[11px] font-bold">{unit.bedrooms} <span className="font-normal text-[9px] text-muted">KT</span></span>
               </div>
-              <div className="flex items-center gap-1.5 text-primary/80">
-                <div className="p-1.5 bg-accent/50 rounded-lg"><BathIcon /></div>
-                <span className="text-xs font-bold">{unit.bathrooms} <span className="font-normal text-[10px] text-muted">KM</span></span>
+              <div className="flex items-center gap-1 text-primary/80">
+                <div className="p-1 bg-accent/50 rounded-lg text-primary/60"><BathIcon /></div>
+                <span className="text-[11px] font-bold">{unit.bathrooms} <span className="font-normal text-[9px] text-muted">KM</span></span>
               </div>
-              <div className="flex items-center gap-1.5 text-primary/80">
-                <div className="p-1.5 bg-accent/50 rounded-lg"><AreaIcon /></div>
-                <span className="text-xs font-bold">{unit.landSize} <span className="font-normal text-[10px] text-muted">m²</span></span>
+              <div className="flex items-center gap-1 text-primary/80">
+                <div className="p-1 bg-accent/50 rounded-lg text-primary/60"><AreaIcon /></div>
+                <span className="text-[11px] font-bold">{unit.landSize} <span className="font-normal text-[9px] text-muted">m²</span></span>
               </div>
             </div>
 
             <div className="mt-auto">
-              <div className="mb-4 text-center lg:text-left">
-                <p className="text-[11px] text-muted mb-0.5 font-medium">Mulai dari</p>
+              <div className="mb-3 text-center lg:text-left">
+                <p className="text-[10px] text-muted mb-0 font-medium">Mulai dari</p>
                 <div className="flex items-baseline justify-center lg:justify-start gap-2">
-                  <span className="text-2xl lg:text-3xl font-display font-black text-primary tracking-tight">
+                  <span className="text-xl lg:text-2xl font-display font-black text-primary tracking-tight">
                     {formatRupiah(unit.price)}
                   </span>
                 </div>
-                <p className="text-[9px] text-secondary-dark font-bold uppercase tracking-widest mt-1">
+                <p className="text-[8px] text-secondary-dark font-bold uppercase tracking-widest mt-0.5">
                   Angsuran 2 Juta-an*
                 </p>
               </div>

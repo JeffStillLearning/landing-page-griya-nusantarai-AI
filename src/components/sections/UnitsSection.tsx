@@ -46,21 +46,21 @@ export function UnitsSection() {
   };
 
   return (
-    <section className="py-10 lg:py-20 bg-accent/20 relative overflow-hidden" id="unit-tersedia">
+    <section className="relative lg:min-h-screen flex items-center py-16 lg:py-10 bg-accent/20 overflow-hidden" id="unit-tersedia">
       {/* Decorative background elements */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-secondary/5 blur-[120px] -z-10 rounded-full" />
       <div className="absolute bottom-0 left-0 w-1/4 h-1/4 bg-primary/5 blur-[100px] -z-10 rounded-full" />
       
-      <div className="container mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-10 lg:mb-10 px-6 lg:px-0">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10 w-full">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-10 lg:mb-12">
           <div className="max-w-3xl text-center lg:text-left">
-            <div className="inline-block bg-secondary/10 text-secondary-dark rounded-full text-[10px] lg:text-xs font-bold uppercase tracking-widest px-4 py-1.5 mb-4">
+            <div className="inline-block bg-secondary/10 text-secondary-dark rounded-full text-[10px] lg:text-base font-bold uppercase tracking-widest mb-4">
               Pilihan Properti Terbaik
             </div>
             <h2 className="text-4xl lg:text-5xl font-display font-extrabold text-primary mb-4 leading-[1.05]" id="units-heading">
               Unit <span className="text-secondary-dark">Tersedia</span>
             </h2>
-            <p className="text-muted text-lg lg:text-xl max-w-2xl mx-auto lg:mx-0 font-body leading-relaxed">
+            <p className="text-muted text-lg lg:text-xl max-w-3xl mx-auto lg:mx-0 font-body leading-relaxed line-clamp-2">
               Temukan hunian impian Anda dengan desain modern dan lingkungan yang asri. Pilih tipe yang sesuai dengan gaya hidup dan kebutuhan keluarga Anda.
             </p>
           </div>
@@ -71,7 +71,7 @@ export function UnitsSection() {
           <div 
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-12 overflow-x-auto snap-x snap-mandatory px-6 lg:px-0 pb-4 lg:pb-0 mb-6 lg:mb-32 no-scrollbar"
+            className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-12 overflow-x-auto snap-x snap-mandatory pb-4 lg:pb-0 mb-6 lg:mb-0 no-scrollbar -mt-4"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {filteredUnits.length > 0 ? (

@@ -9,7 +9,6 @@ import { TestimonialSection } from '@/components/sections/TestimonialSection';
 import { FAQSection } from '@/components/sections/FAQSection';
 import { CTAFormSection } from '@/components/sections/CTAFormSection';
 import { FooterSection } from '@/components/sections/FooterSection';
-import { WhatsAppFloat } from '@/components/ui/WhatsAppFloat';
 
 export default function Home() {
   return (
@@ -38,7 +37,6 @@ export default function Home() {
       </main>
 
       <FooterSection />
-      <WhatsAppFloat />
     </>
   );
 }

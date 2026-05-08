@@ -23,7 +23,7 @@ export function GallerySection() {
       
       <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10">
         <div className="max-w-3xl mb-8 md:mb-5">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
+          <span className="inline-block  rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
             Galeri Visual
           </span>
           <h2 className="text-4xl md:text-6xl font-display font-extrabold text-primary mb-4 leading-tight" id="gallery-heading">
