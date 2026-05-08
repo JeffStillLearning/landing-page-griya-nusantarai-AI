@@ -8,7 +8,7 @@ export const benefitsData = [
   {
     id: 'b-2',
     title: 'Lokasi Strategis',
-    description: '5 menit dari Tol & Stasiun KRL',
+    description: '5 mnt dari Tol & Stasiun KRL',
     icon: '📍',
   },
   {

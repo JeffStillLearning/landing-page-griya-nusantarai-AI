@@ -16,11 +16,11 @@ export function TestimonialCarousel() {
         >
           {testimonialsData.map((testi) => (
             <div key={testi.id} className="w-full flex-shrink-0 px-4">
-              <div className="bg-white/5 backdrop-blur-sm p-8 rounded-card border border-white/10 max-w-4xl mx-auto">
+              <div className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-card border border-white/10 max-w-4xl mx-auto">
                 <div className="flex flex-col md:flex-row gap-8 items-center">
                   <div className="relative w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
                     <div className="absolute inset-0 border-2 border-secondary rounded-card translate-x-2 translate-y-2"></div>
-                    <div className="relative w-full h-full overflow-hidden rounded-card">
+                    <div className="relative w-full h-full overflow-hidden rounded-card border-2 border-white/10">
                       <Image
                         src={testi.image}
                         alt={testi.name}
@@ -40,7 +40,7 @@ export function TestimonialCarousel() {
                     <div>
                       <h4 className="font-display font-bold text-secondary text-lg">{testi.name}</h4>
                       <p className="text-muted text-xs uppercase tracking-widest">{testi.role}</p>
-                      <p className="text-muted text-[10px] mt-1 italic">Beli: {testi.date}</p>
+                      <p className="text-muted text-[10px] mt-1 italic">Lunas: {testi.date}</p>
                     </div>
                   </div>
                 </div>
@@ -55,8 +55,8 @@ export function TestimonialCarousel() {
           <button
             key={i}
             onClick={() => setActiveIndex(i)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              activeIndex === i ? 'bg-secondary w-8' : 'bg-white/20 hover:bg-white/40'
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              activeIndex === i ? 'bg-secondary w-10' : 'bg-white/20 hover:bg-white/40'
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />

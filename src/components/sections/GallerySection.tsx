@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { galleryData } from '@/data/gallery';
 import { GalleryCategory } from '@/types/gallery';
 import { Button } from '@/components/ui/Button';
+import { cn } from '@/lib/cn';
 
 export function GallerySection() {
   const [activeCategory, setActiveCategory] = useState<GalleryCategory | 'Semua'>('Semua');
@@ -16,66 +17,91 @@ export function GallerySection() {
   const categories: (GalleryCategory | 'Semua')[] = ['Semua', 'Fasad', 'Interior', 'Kawasan', 'Fasilitas'];
 
   return (
-    <section className="py-16 md:py-24 bg-parchment" id="gallery">
-      <div className="container">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-display font-extrabold text-primary mb-4" id="gallery-heading">
-              Lihat Sendiri, <br /> Bukan Cuma Janji
-            </h2>
-            <div className="w-24 h-1 bg-secondary mt-6"></div>
-          </div>
+    <section className="py-10 md:py-10 bg-white relative overflow-hidden" id="gallery">
+      {/* Background Decorative Accent */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-accent/30 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+      
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10">
+        <div className="max-w-3xl mb-8 md:mb-5">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/20 text-secondary text-xs md:text-sm font-bold tracking-widest uppercase mb-4">
+            Galeri Visual
+          </span>
+          <h2 className="text-4xl md:text-6xl font-display font-extrabold text-primary mb-4 leading-tight" id="gallery-heading">
+            Lihat Sendiri, <br /> <span className="text-secondary-dark">Bukan Cuma Janji</span>
+          </h2>
+          <p className="text-muted font-body text-lg md:text-xl leading-relaxed">
+            Keindahan arsitektur dan kenyamanan interior yang kami hadirkan untuk masa depan keluarga Anda.
+          </p>
+        </div>
 
-          <div className="flex flex-wrap gap-4">
+        {/* Filters positioned directly above the grid */}
+        <div className="mb-6 md:mb-8">
+          <div className="flex overflow-x-auto no-scrollbar pb-2 lg:pb-0 flex-nowrap gap-2 md:gap-3 bg-accent/50 p-1.5 rounded-2xl border border-primary/5 w-fit max-w-full">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`relative py-2 px-1 text-sm font-bold uppercase tracking-widest transition-all ${
-                  activeCategory === cat ? 'text-primary' : 'text-muted hover:text-primary'
-                }`}
+                className={cn(
+                  "py-2 px-5 text-xs md:text-sm font-bold uppercase tracking-widest transition-all duration-300 rounded-xl whitespace-nowrap shrink-0",
+                  activeCategory === cat 
+                    ? "bg-primary text-white shadow-lg shadow-primary/20" 
+                    : "text-muted hover:text-primary hover:bg-white"
+                )}
               >
                 {cat}
-                {activeCategory === cat && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-secondary"></span>
-                )}
               </button>
             ))}
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 auto-rows-[150px] md:auto-rows-[200px]">
-          {filteredItems.map((item, i) => (
+        {/* Uniform Photo Grid Layout with permanent labels and stroke hover */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 min-h-[400px] md:min-h-[600px]">
+          {filteredItems.map((item) => (
             <div 
               key={item.id}
-              className={`relative group overflow-hidden bg-accent rounded-card ${
-                i === 0 ? 'col-span-2 row-span-2' : ''
-              }`}
+              className="relative group overflow-hidden bg-accent rounded-xl aspect-square md:aspect-[4/3] border-2 border-white shadow-sm transition-all duration-300 hover:shadow-md hover:border-secondary animate-in fade-in duration-500"
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4">
-                <span className="text-secondary text-2xl mb-2">🔍</span>
-                <p className="text-white font-display font-bold text-center text-sm">{item.title}</p>
-                <p className="text-parchment/60 text-[10px] uppercase tracking-widest mt-1">{item.category}</p>
+              
+              {/* Overlay Content - Always Visible */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3 md:p-5">
+                <div>
+                  <span className="inline-block px-2 py-0.5 rounded bg-secondary text-primary text-[8px] md:text-[10px] font-bold uppercase tracking-widest mb-1">
+                    {item.category}
+                  </span>
+                  <h3 className="text-white font-display font-bold text-xs md:text-sm leading-tight">
+                    {item.title}
+                  </h3>
+                </div>
               </div>
+
+              {/* Stroke overlay hint on hover */}
+              <div className="absolute inset-0 border-0 group-hover:border-2 border-secondary transition-all duration-300 rounded-xl pointer-events-none" />
             </div>
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col md:flex-row items-center justify-center gap-6">
-          <Button variant="outline">
-            Lihat Semua Foto (24)
+        {/* <div className="mt-16 md:mt-24 flex flex-col md:flex-row items-center justify-center gap-8">
+          <Button variant="outline" className="w-full md:w-auto px-12 py-5 border-primary/10 hover:border-primary group">
+            Lihat Semua Foto <span className="ml-2 text-primary/30 group-hover:text-primary transition-colors">(24)</span>
           </Button>
-          <span className="text-muted hidden md:block italic">atau</span>
-          <Button variant="ghost" className="flex items-center gap-2">
-            <span className="text-secondary">▶</span> TONTON VIDEO TOUR
+          <div className="flex items-center gap-4 text-muted/40 font-display font-bold text-sm uppercase tracking-widest hidden md:flex">
+            <span className="w-8 h-px bg-current" />
+            Atau
+            <span className="w-8 h-px bg-current" />
+          </div>
+          <Button variant="ghost" className="w-full md:w-auto flex items-center gap-3 font-black text-secondary-dark hover:text-primary group">
+            <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-300">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="m7 4 12 8-12 8V4z"/></svg>
+            </div>
+            TONTON VIDEO TOUR
           </Button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

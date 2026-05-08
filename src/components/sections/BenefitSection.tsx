@@ -3,10 +3,10 @@ import { benefitsData } from '@/data/benefits';
 
 export function BenefitSection() {
   return (
-    <section className="py-16 md:py-32 bg-white relative overflow-hidden" id="benefit-section">
+    <section className="py-10 md:py-32 bg-white relative overflow-hidden" id="benefit-section">
       <div className="container">
         {/* Mobile Header: Centered and prominent */}
-        <div className="max-w-3xl mb-10 md:mb-16 lg:hidden text-center">
+        <div className="max-w-3xl mb-5 md:mb-16 lg:hidden text-center">
           <h2 className="text-3xl font-display font-extrabold text-primary mb-4 leading-tight">
             Kenapa Pilih <span className="text-secondary">Griya Nusantara?</span>
           </h2>

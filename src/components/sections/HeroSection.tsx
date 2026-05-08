@@ -21,7 +21,7 @@ export function HeroSection() {
 
       </div>
 
-      <div className="container relative z-20">
+      <div className="container relative z-20 mb-10">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 bg-secondary/90 text-white px-3 py-1 rounded-full text-xs font-bold mb-6 uppercase tracking-wider">
             <span>📍</span> Bekasi Barat · Jawa Barat

@@ -9,7 +9,7 @@ interface FAQAccordionProps {
 }
 
 export function FAQAccordion({ items }: FAQAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0); // Default open first item for better visibility
 
   return (
     <div className="space-y-4" role="list">
@@ -18,8 +18,10 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
           key={item.id} 
           role="listitem" 
           className={cn(
-            "bg-white rounded-card border transition-all duration-300",
-            openIndex === i ? "border-primary shadow-md" : "border-primary/10"
+            "group bg-white rounded-2xl border transition-all duration-500 overflow-hidden",
+            openIndex === i 
+              ? "border-primary shadow-xl shadow-primary/5 ring-1 ring-primary/5" 
+              : "border-primary/10 hover:border-secondary/50 shadow-sm"
           )}
         >
           <button
@@ -27,35 +29,54 @@ export function FAQAccordion({ items }: FAQAccordionProps) {
             aria-controls={`faq-answer-${i}`}
             id={`faq-question-${i}`}
             onClick={() => setOpenIndex(openIndex === i ? null : i)}
-            className="w-full text-left p-6 flex justify-between items-center group"
+            className={cn(
+              "w-full text-left p-6 md:p-8 flex justify-between items-center gap-6 transition-colors duration-300",
+              openIndex === i ? "bg-accent/30" : "bg-white hover:bg-accent/10"
+            )}
           >
-            <span className={cn(
-              "font-display font-bold text-lg transition-colors",
-              openIndex === i ? "text-primary" : "text-primary/70 group-hover:text-primary"
+            <div className={cn(
+                  "flex items-start gap-4 font-display font-bold text-base md:text-xl leading-tight transition-colors duration-300",
+                  openIndex === i
+                    ? "text-primary"
+                    : "text-primary/80 group-hover:text-primary"
+                )}
+              >
+                <span className="text-secondary font-black opacity-40 shrink-0">
+                  Q.
+                </span>
+
+                <span className="flex-1">
+                  {item.question}
+                </span>
+              </div>
+            <div className={cn(
+              "w-8 h-8 rounded-full border-2 flex items-center justify-center shrink-0 transition-all duration-500",
+              openIndex === i 
+                ? "bg-primary border-primary text-secondary rotate-180" 
+                : "bg-transparent border-primary/10 text-primary/40 group-hover:border-secondary/50 group-hover:text-secondary"
             )}>
-              {item.question}
-            </span>
-            <span className={cn(
-              "text-secondary text-2xl transition-transform duration-300",
-              openIndex === i ? "rotate-180" : ""
-            )}>
-              {openIndex === i ? '−' : '+'}
-            </span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
           </button>
+          
           <div
             id={`faq-answer-${i}`}
             role="region"
             aria-labelledby={`faq-question-${i}`}
-            hidden={openIndex !== i}
             className={cn(
-              "overflow-hidden transition-all duration-300",
-              openIndex === i ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+              "grid transition-all duration-500 ease-in-out",
+              openIndex === i ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
             )}
           >
-            <div className="px-6 pb-6 pt-0 border-t border-accent mt-2">
-              <p className="font-body text-muted leading-relaxed pt-4">
-                {item.answer}
-              </p>
+            <div className="overflow-hidden">
+              <div className="px-6 pb-8 md:px-8 md:pb-10 pt-2 border-t border-primary/5">
+                <div className="flex gap-4">
+                  <span className="text-secondary font-black text-base md:text-xl opacity-40 mt-1 shrink-0">A.</span>
+                  <p className="font-body text-muted text-sm md:text-lg leading-relaxed max-w-2xl">
+                    {item.answer}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

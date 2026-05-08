@@ -19,7 +19,7 @@ export function FAQSection() {
           <div className="mt-16 text-center bg-accent/50 p-8 rounded-card border border-primary/5">
             <p className="font-body text-primary mb-6">Pertanyaanmu belum terjawab?</p>
             <Button variant="whatsapp">
-              Tanya Langsung Agen →
+              hubungai kami
             </Button>
           </div>
         </div>

@@ -1,66 +1,126 @@
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/data/site';
+import { cn } from '@/lib/cn';
+
+const CarIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-1.4 1-2.5 0-1.1-.4-2.5-1-2.5h-1.3l-1.3-4.1c-.2-.6-.9-1-1.6-1H7.3c-.7 0-1.4.4-1.6 1L4.3 12H3c-.6 0-1 1.4-1 2.5 0 1.1.4 2.5 1 2.5h2" /><circle cx="7" cy="17" r="2" /><path d="M9 17h6" /><circle cx="17" cy="17" r="2" /></svg>
+);
+
+const TrainIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="16" height="16" x="4" y="3" rx="2" /><path d="M4 11h16" /><path d="M12 3v8" /><path d="m8 19-2 3" /><path d="m18 22-2-3" /><path d="M8 15h0" /><path d="M16 15h0" /></svg>
+);
+
+const SchoolIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
+);
+
+const HospitalIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 14c1.1 0 2-1 2-2V4a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8c0 1.1.9 2 2 2h14Z" /><path d="M16 2v4" /><path d="M8 2v4" /><path d="M3 10h18" /><path d="M14 18v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3" /></svg>
+);
+
+const CartIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="21" r="1" /><circle cx="19" cy="21" r="1" /><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.56-7.43H5.05" /></svg>
+);
+
+const MosqueIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 22v-4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4" /><path d="M18 10a6 6 0 0 0-12 0v6h12V10Z" /><path d="M12 2v4" /><path d="M9 10a3 3 0 0 1 6 0" /></svg>
+);
 
 export function LocationSection() {
   const distances = [
-    { name: 'Tol Bekasi Barat', time: '3 mnt', icon: '🚗' },
-    { name: 'Stasiun KRL', time: '5 mnt', icon: '🚉' },
-    { name: 'SDN / SMPN', time: '2 mnt', icon: '🏫' },
-    { name: 'RS Hermina', time: '8 mnt', icon: '🏥' },
-    { name: 'Supermarket', time: '4 mnt', icon: '🛒' },
-    { name: 'Masjid Jami', time: '1 mnt', icon: '🕌' },
+    { name: 'Tol Bekasi Barat', time: '3 mnt', icon: <CarIcon /> },
+    { name: 'Stasiun KRL', time: '5 mnt', icon: <TrainIcon /> },
+    { name: 'Fasilitas Pendidikan', time: '2 mnt', icon: <SchoolIcon /> },
+    { name: 'RS Hermina', time: '8 mnt', icon: <HospitalIcon /> },
+    { name: 'Pusat Perbelanjaan', time: '4 mnt', icon: <CartIcon /> },
+    { name: 'Masjid Jami', time: '1 mnt', icon: <MosqueIcon /> },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-parchment" id="lokasi">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-          <div className="lg:col-span-3">
-            <h2 className="text-3xl md:text-5xl font-display font-extrabold text-primary mb-8" id="location-heading">
-              Lokasi yang <br /> Bikin Hidup Lebih Mudah
-            </h2>
+    <section className="py-10 lg:py-10 bg-white relative overflow-hidden" id="lokasi">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+          <div className="order-2 lg:order-1">
             
-            <div className="relative aspect-[16/10] bg-accent rounded-card shadow-card overflow-hidden mb-6">
-              {/* Google Maps Embed Placeholder */}
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15863.3601815147!2d106.9756!3d-6.2383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTQnMjcuOSJTIDEwNsKwNTgnMzIuMiJF!5e0!3m2!1sen!2sid!4v1620216000000!5m2!1sen!2sid"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                title="Peta Lokasi Griya Nusantara"
-              ></iframe>
-            </div>
-
-            <p className="text-sm font-body text-muted flex items-center gap-2">
-              <span className="text-secondary text-lg">📍</span> {siteConfig.address}
+            <h2 className="text-4xl lg:text-5xl font-display font-extrabold text-primary mb-8 leading-[1.05]" id="location-heading">
+              Lokasi yang <br className="hidden lg:block" /> <span className="text-secondary-dark">Strategis</span>
+            </h2>
+            <p className="text-muted text-lg lg:text-xl font-body leading-relaxed mb-12 max-w-xl">
+              Dikelilingi berbagai fasilitas publik utama yang menunjang mobilitas dan gaya hidup modern keluarga Anda.
             </p>
-          </div>
-
-          <div className="lg:col-span-2">
-            <h3 className="text-xl font-display font-bold text-primary mb-6">Jarak dari Lokasi:</h3>
-            <div className="space-y-1">
-              {distances.map((item) => (
+            
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+              {distances.map((item, idx) => (
                 <div 
                   key={item.name} 
-                  className="flex items-center justify-between p-4 border-b border-primary/10 hover:bg-accent/50 transition-colors group"
+                  className={cn(
+                    "flex flex-row items-center justify-between p-5 rounded-2xl border transition-all duration-300 group gap-4 lg:gap-2",
+                    idx === 0 
+                      ? "bg-primary text-white border-primary shadow-xl shadow-primary/10" 
+                      : "bg-parchment/30 border-primary/5 hover:border-secondary/50 hover:bg-white"
+                  )}
                 >
                   <div className="flex items-center gap-4">
-                    <span className="text-xl">{item.icon}</span>
-                    <span className="font-body text-primary">{item.name}</span>
+                    <div className={cn(
+                      "p-2.5 rounded-xl transition-colors shrink-0",
+                      idx === 0 ? "bg-white/10 text-secondary" : "bg-white text-primary shadow-sm"
+                    )}>
+                      {item.icon}
+                    </div>
+                    <span className={cn(
+                      "font-bold text-sm lg:text-[13px] xl:text-sm",
+                      idx === 0 ? "text-white" : "text-primary"
+                    )}>
+                      {item.name}
+                    </span>
                   </div>
-                  <span className="font-display font-extrabold text-secondary group-hover:scale-110 transition-transform">
-                    {item.time}
-                  </span>
+                  <div className="flex items-center gap-1 shrink-0">
+                    <span className={cn(
+                      "font-display font-black text-lg lg:text-base xl:text-lg whitespace-nowrap",
+                      idx === 0 ? "text-secondary" : "text-secondary-dark"
+                    )}>
+                      {item.time}
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
 
-            <div className="mt-10">
-              <Button variant="outline" size="full">
-                Buka di Google Maps →
-              </Button>
+            
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <div className="relative">
+              {/* Decorative Frame */}
+              <div className="absolute -inset-4 bg-secondary/10 rounded-[40px] -z-10 blur-2xl lg:blur-3xl" />
+              
+              <div className="relative aspect-square lg:aspect-[4/5] bg-accent rounded-[32px] shadow-2xl overflow-hidden border-8 border-white">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15863.3601815147!2d106.9756!3d-6.2383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTQnMjcuOSJTIDEwNsKwNTgnMzIuMiJF!5e0!3m2!1sen!2sid!4v1620216000000!5m2!1sen!2sid"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={true}
+                  loading="lazy"
+                  title="Peta Lokasi Griya Nusantara"
+                  className="grayscale-[0.2] contrast-[1.1] hover:grayscale-0 transition-all duration-700"
+                ></iframe>
+                
+                {/* Floating Address Card */}
+                <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/20">
+                  <div className="flex gap-4">
+                    <div className="bg-primary text-secondary p-3 rounded-xl h-fit">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-bold uppercase tracking-widest text-secondary-dark mb-1">Alamat Lokasi</p>
+                      <p className="text-xs lg:text-sm font-bold text-primary leading-tight">
+                        {siteConfig.address}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
