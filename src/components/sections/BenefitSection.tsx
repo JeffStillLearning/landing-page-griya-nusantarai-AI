@@ -78,7 +78,7 @@ export function BenefitSection() {
 
             {/* Quote / Sign-off: Hidden on mobile to keep it short */}
             <div className="mt-8 lg:mt-10 p-5 lg:p-6 bg-accent/50 rounded-2xl border-l-4 border-secondary italic text-primary/70 font-body hidden lg:block text-sm">
-              "Kami percaya setiap keluarga berhak memiliki rumah yang aman dan legalitas yang terjamin tanpa rasa khawatir."
+              &ldquo;Kami percaya setiap keluarga berhak memiliki rumah yang aman dan legalitas yang terjamin tanpa rasa khawatir.&rdquo;
             </div>
           </div>
 

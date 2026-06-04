@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { galleryData } from '@/data/gallery';
 import { GalleryCategory } from '@/types/gallery';
-import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/cn';
 
 export function GallerySection() {

@@ -3,19 +3,13 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { unitsData } from '@/data/units';
 import { UnitCard } from '@/components/ui/UnitCard';
-import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/cn';
 
 export function UnitsSection() {
-  const [filter, setFilter] = useState<'Semua' | 'Ready' | 'Indent'>('Semua');
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const filteredUnits = useMemo(() => {
-    if (filter === 'Semua') return unitsData;
-    if (filter === 'Ready') return unitsData.filter(u => u.isReadyStock);
-    return unitsData.filter(u => !u.isReadyStock);
-  }, [filter]);
+  const filteredUnits = useMemo(() => unitsData, []);
 
   // Reset scroll and index when filter changes
   useEffect(() => {

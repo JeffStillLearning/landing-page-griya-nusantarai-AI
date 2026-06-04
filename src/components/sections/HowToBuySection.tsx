@@ -1,5 +1,3 @@
-import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/cn';
 
 const SurveyIcon = () => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
@@ -59,7 +57,7 @@ export function HowToBuySection() {
           {/* Connection Lines (Desktop) */}
           <div className="hidden lg:block absolute top-1/3 left-[15%] right-[15%] h-px border-t border-dashed border-parchment/20 -z-0" />
 
-          {steps.map((step, i) => (
+          {steps.map((step) => (
             <div key={step.number} className="relative group">
               <div className="relative z-10 h-full flex flex-col p-8 md:p-10 rounded-[32px] bg-white/5 border border-white/10 backdrop-blur-sm transition-all duration-500 hover:bg-white/10 hover:border-secondary/30 hover:-translate-y-2">
                 

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/data/site';
 
 export function HeroSection() {

@@ -177,7 +177,7 @@ export function UnitCard({ unit }: UnitCardProps) {
             <div className="flex-grow overflow-y-auto no-scrollbar mb-6">
               <div className="bg-white/60 backdrop-blur-sm p-4 rounded-2xl mb-6 border border-secondary/10">
                 <p className="text-[11px] text-primary/80 font-body leading-relaxed italic">
-                  "{unit.description}"
+                  &ldquo;{unit.description}&rdquo;
                 </p>
               </div>
               
