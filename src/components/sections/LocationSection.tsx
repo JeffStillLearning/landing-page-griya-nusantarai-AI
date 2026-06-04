@@ -35,25 +35,23 @@ export function LocationSection() {
   ];
 
   return (
-    <section className="relative lg:min-h-screen flex items-center py-16 lg:py-10 bg-white overflow-hidden" id="lokasi">
+    <section className="py-24 lg:py-32 bg-white relative overflow-hidden" id="lokasi">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.5fr] gap-12 lg:gap-20 items-center justify-items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-16 lg:gap-24 items-center">
           
-          <div className="order-2 lg:order-1 w-full max-w-2xl mx-auto lg:mx-0">
-            <div className="text-center lg:text-left mb-8 lg:mb-10">
-              <h2 className="text-4xl lg:text-5xl font-display font-extrabold text-primary mb-6 leading-[1.05]" id="location-heading">
-                Lokasi yang <br className="hidden lg:block" /> <span className="text-secondary-dark">Strategis</span>
-              </h2>
-              <p className="text-muted text-base lg:text-lg font-body leading-relaxed max-w-xl mx-auto lg:mx-0">
-                Dikelilingi berbagai fasilitas publik utama yang menunjang mobilitas dan gaya hidup modern keluarga Anda.
-              </p>
-            </div>
+          <div className="order-2 lg:order-1">
+            <h2 className="text-4xl lg:text-5xl font-display font-extrabold text-primary mb-8 leading-[1.05]" id="location-heading">
+              Lokasi yang <br className="hidden lg:block" /> <span className="text-secondary-dark">Strategis</span>
+            </h2>
+            <p className="text-muted text-lg lg:text-xl font-body leading-relaxed mb-12 max-w-xl">
+              Dikelilingi berbagai fasilitas publik utama yang menunjang mobilitas dan gaya hidup modern keluarga Anda.
+            </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 lg:gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
               {distances.map((item) => (
                 <div 
                   key={item.name} 
-                  className="flex flex-row items-center justify-between p-4 rounded-2xl border border-primary/5 bg-parchment/30 transition-all duration-300 group gap-4 lg:gap-2 hover:border-secondary/50 hover:bg-white"
+                  className="flex flex-row items-center justify-between p-5 rounded-2xl border border-primary/5 bg-parchment/30 transition-all duration-300 group gap-4 lg:gap-2 hover:border-secondary/50 hover:bg-white"
                 >
                   <div className="flex items-center gap-4">
                     <div className="p-2.5 rounded-xl bg-white text-primary shadow-sm transition-colors group-hover:bg-secondary group-hover:text-white">
@@ -73,12 +71,12 @@ export function LocationSection() {
             </div>
           </div>
 
-          <div className="order-1 lg:order-2 w-full">
+          <div className="order-1 lg:order-2">
             <div className="relative">
               {/* Decorative Frame */}
               <div className="absolute -inset-4 bg-secondary/10 rounded-[40px] -z-10 blur-2xl lg:blur-3xl" />
               
-              <div className="relative aspect-square lg:aspect-square max-h-[80vh] mx-20 bg-accent rounded-[32px] overflow-hidden border-8 border-white">
+              <div className="relative aspect-square lg:aspect-[4/5] max-h-[75vh] bg-accent rounded-[32px] overflow-hidden border-8 border-white">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15863.3601815147!2d106.9756!3d-6.2383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTQnMjcuOSJTIDEwNsKwNTgnMzIuMiJF!5e0!3m2!1sen!2sid!4v1620216000000!5m2!1sen!2sid"
                   width="100%"
