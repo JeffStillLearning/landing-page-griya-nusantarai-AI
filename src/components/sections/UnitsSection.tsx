@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useRef, useEffect } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { unitsData } from '@/data/units';
 import { UnitCard } from '@/components/ui/UnitCard';
 import { cn } from '@/lib/cn';
@@ -11,13 +11,6 @@ export function UnitsSection() {
 
   const filteredUnits = useMemo(() => unitsData, []);
 
-  // Reset scroll and index when filter changes
-  useEffect(() => {
-    setActiveIndex(0);
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-    }
-  }, [filter]);
 
   const handleScroll = () => {
     if (!scrollContainerRef.current) return;
